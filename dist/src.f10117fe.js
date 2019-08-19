@@ -117,9 +117,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.ts":[function(require,module,exports) {
-console.log("Hi there");
-},{}],"../../.nvm/versions/node/v10.4.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"src/models/User.ts":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var User =
+/** @class */
+function () {
+  function User(data) {
+    this.data = data;
+  }
+
+  User.prototype.get = function (propName) {
+    return this.data[propName];
+  };
+
+  return User;
+}();
+
+exports.User = User;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var User_1 = require("./models/User");
+
+var user = new User_1.User({
+  name: "Oliver",
+  age: 17
+});
+console.log(user.get("name"));
+console.log(user.get("age"));
+},{"./models/User":"src/models/User.ts"}],"../../.nvm/versions/node/v10.4.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +178,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64511" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
